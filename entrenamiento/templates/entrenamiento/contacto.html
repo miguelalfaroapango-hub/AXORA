@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - AXORA TRAINING CLUB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #ff0000;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 140px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #ff0000;
+        }
+
+        .nav-links a.active {
+            color: #ff0000;
+            border-bottom: 2px solid #ff0000;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #ff0000;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .contact-info h2 {
+            color: #ff0000;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item h3 {
+            color: #ff0000;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .contact-form h2 {
+            color: #ff0000;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff0000;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #ff0000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 2rem;
+            text-align: center;
+            border-top: 2px solid #ff0000;
+        }
+
+        footer p {
+            color: #666666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo img {
+                height: 100px;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 1rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'imagenes/logo.png' %}" alt="AXORA Training Club">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'clases' %}">Clases</a></li>
+                <li><a href="{% url 'contacto' %}" class="active">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1 class="page-title">Contáctanos</h1>
+
+        <div class="contact-container">
+            <!-- Información de Contacto -->
+            <div class="contact-info">
+                <h2>Información</h2>
+                
+                <div class="info-item">
+                    <h3>📍 Dirección</h3>
+                    <p>Av. Fitness 123, Col. Deportiva<br>Ciudad de México, CP 01234</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>📞 Teléfono</h3>
+                    <p>+52 55 1234 5678</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>📧 Email</h3>
+                    <p>info@axoratrainingclub.com</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>🕒 Horarios</h3>
+                    <p>
+                        Lunes a Viernes: 5:00 AM - 11:00 PM<br>
+                        Sábados: 7:00 AM - 9:00 PM<br>
+                        Domingos: 8:00 AM - 6:00 PM
+                    </p>
+                </div>
+            </div>
+
+            <!-- Formulario de Contacto -->
+            <div class="contact-form">
+                <h2>Envíanos un mensaje</h2>
+                <form action="#" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AXORA TRAINING CLUB - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

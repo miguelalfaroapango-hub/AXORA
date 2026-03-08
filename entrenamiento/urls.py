@@ -1,8 +1,8 @@
-from django.urls import path 
-from entrenamiento.views import*
+from django.urls import path
+from entrenamiento.views import index, clases, contacto
 
-
-urlpatterns =  [
-   path("", home, name="home")
-
+urlpatterns = [
+    path('', index, name='index'),
+    path('clases/', clases, name='clases'),
+    path('contacto/', contacto, name='contacto'),
 ]

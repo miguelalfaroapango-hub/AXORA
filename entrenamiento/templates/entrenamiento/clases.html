@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases - AXORA TRAINING CLUB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #ff0000;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 140px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #ff0000;
+        }
+
+        .nav-links a.active {
+            color: #ff0000;
+            border-bottom: 2px solid #ff0000;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #ff0000;
+        }
+
+        .clases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .clase-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .clase-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .clase-card h3 {
+            font-size: 1.8rem;
+            color: #ff0000;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .clase-card p {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .horario {
+            background: rgba(255, 0, 0, 0.1);
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 4px solid #ff0000;
+        }
+
+        .horario strong {
+            color: #ff0000;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 2rem;
+            text-align: center;
+            border-top: 2px solid #ff0000;
+        }
+
+        footer p {
+            color: #666666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo img {
+                height: 100px;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 1rem;
+            }
+
+            .clases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'imagenes/logo.png' %}" alt="AXORA Training Club">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'clases' %}" class="active">Clases</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1 class="page-title">Nuestras Clases</h1>
+
+        <div class="clases-grid">
+            <!-- Clase 1 -->
+            <div class="clase-card">
+                <h3>💪 CrossFit</h3>
+                <p>Entrenamiento funcional de alta intensidad que combina levantamiento de pesas, gimnasia y cardio.</p>
+                <div class="horario">
+                    <strong>Horarios:</strong><br>
+                    Lunes, Miércoles, Viernes: 6:00 AM - 7:00 AM<br>
+                    Martes, Jueves: 7:00 PM - 8:00 PM
+                </div>
+            </div>
+
+            <!-- Clase 2 -->
+            <div class="clase-card">
+                <h3>🏋️ Levantamiento de Pesas</h3>
+                <p>Desarrolla fuerza y masa muscular con técnicas profesionales de powerlifting y culturismo.</p>
+                <div class="horario">
+                    <strong>Horarios:</strong><br>
+                    Lunes a Viernes: 5:00 PM - 6:30 PM<br>
+                    Sábados: 9:00 AM - 11:00 AM
+                </div>
+            </div>
+
+            <!-- Clase 3 -->
+            <div class="clase-card">
+                <h3>🥊 Boxing</h3>
+                <p>Mejora tu condición física y técnica de combate con entrenamiento profesional de boxeo.</p>
+                <div class="horario">
+                    <strong>Horarios:</strong><br>
+                    Martes, Jueves: 6:00 PM - 7:30 PM<br>
+                    Sábados: 10:00 AM - 11:30 AM
+                </div>
+            </div>
+
+            <!-- Clase 4 -->
+            <div class="clase-card">
+                <h3>🧘 Yoga & Movilidad</h3>
+                <p>Sesiones de recuperación, flexibilidad y bienestar mental para complementar tu entrenamiento.</p>
+                <div class="horario">
+                    <strong>Horarios:</strong><br>
+                    Miércoles, Viernes: 8:00 AM - 9:00 AM<br>
+                    Domingos: 10:00 AM - 11:00 AM
+                </div>
+            </div>
+
+            <!-- Clase 5 -->
+            <div class="clase-card">
+                <h3>🔥 HIIT Cardio</h3>
+                <p>Entrenamiento cardiovascular de intervalos de alta intensidad para quemar grasa rápidamente.</p>
+                <div class="horario">
+                    <strong>Horarios:</strong><br>
+                    Lunes, Miércoles, Viernes: 7:00 AM - 8:00 AM<br>
+                    Martes, Jueves: 6:00 PM - 7:00 PM
+                </div>
+            </div>
+
+            <!-- Clase 6 -->
+            <div class="clase-card">
+                <h3>🏃 Running Club</h3>
+                <p>Entrena resistencia cardiovascular con nuestro club de corredores en rutas exteriores.</p>
+                <div class="horario">
+                    <strong>Horarios:</strong><br>
+                    Sábados: 7:00 AM - 8:30 AM<br>
+                    Domingos: 7:00 AM - 8:30 AM
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AXORA TRAINING CLUB - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

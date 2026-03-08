@@ -192,7 +192,7 @@
 
         @media (max-width: 480px) {
             .nav-links {
-                display: none; /* Ocultar menú en móviles muy pequeños */
+                display: none;
             }
         }
     </style>
@@ -202,12 +202,13 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="{% static 'imagenes/logo.png' %}" alt="AXORA Training Club">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'imagenes/logo.png' %}" alt="AXORA Training Club">
+                </a>
             </div>
             <ul class="nav-links">
-                <li><a href="#Inicio">Inicio</a></li>
-                <li><a href="#Horarios">Horarios</a></li>
-                <li><a href="#Contacto">Contacto</a></li>
+                <li><a href="{% url 'clases' %}">Clases</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -222,13 +223,14 @@
             <p class="hero-subtitle">Transforma tu cuerpo, transforma tu vida</p>
             <p class="hero-description">
                 El lugar donde los límites se rompen y los objetivos se conquistan.
+                Únete a la comunidad más fuerte de la ciudad.
             </p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 AXORA TRAINING CLUB - Todos los derechos reservados</p>
+        <p>&copy; 2025 AXORA TRAINING CLUB </p>
     </footer>
 </body>
 </html>
