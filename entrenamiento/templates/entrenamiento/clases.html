@@ -85,7 +85,7 @@
         main {
             flex: 1;
             padding: 4rem 2rem;
-            max-width: 1400px;
+            max-width: 1800px;
             margin: 0 auto;
             width: 100%;
         }
@@ -95,55 +95,145 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             text-align: center;
             color: #ff0000;
         }
 
-        .clases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .page-subtitle {
+            text-align: center;
+            color: #cccccc;
+            font-size: 1.2rem;
             margin-bottom: 3rem;
         }
 
-        .clase-card {
-            background: rgba(255, 255, 255, 0.05);
+        /* Tabla de Horarios */
+        .schedule-container {
+            overflow-x: auto;
+            margin-bottom: 3rem;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.02);
             border: 2px solid #ff0000;
-            border-radius: 15px;
-            padding: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Fila de títulos de entrenamiento */
+        .training-title-row th {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: #ffffff;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .training-title-row th:first-child {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Fila de días - COLOR DIFERENTE */
+        .day-row th {
+            background: #2a2a2a;
+            color: #ffffff;
+            padding: 1.2rem 1rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+
+        .day-row th:first-child {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Columna AM/PM */
+        .time-period {
+            background: #ff0000;
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 900;
+            text-align: center;
+            vertical-align: middle;
+            letter-spacing: 3px;
+            writing-mode: horizontal-tb;
+            text-orientation: mixed;
+            padding: 1rem 0.5rem;
+            min-width: 60px;
+            border: 2px solid rgba(0, 0, 0, 0.5);
+        }
+
+        .schedule-table td {
+            padding: 1rem 0.8rem;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            vertical-align: top;
+            min-height: 80px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .schedule-table tr:hover td {
+            background: rgba(255, 0, 0, 0.05);
+        }
+
+        /* Hora column */
+        .schedule-table td.time-slot {
+            background: rgba(255, 0, 0, 0.2);
+            font-weight: bold;
+            color: #ff0000;
+            text-align: center;
+            font-size: 0.95rem;
+            min-width: 110px;
+            white-space: nowrap;
+            padding: 0.8rem 0.5rem;
+        }
+
+        /* Clases en las celdas */
+        .clase-item {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.1));
+            border-left: 4px solid #ff0000;
+            padding: 0.8rem;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
             transition: all 0.3s ease;
         }
 
-        .clase-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.1);
+        .clase-item:hover {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.2));
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
         }
 
-        .clase-card h3 {
-            font-size: 1.8rem;
+        .clase-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .clase-nombre {
+            font-weight: bold;
+            font-size: 1rem;
             color: #ff0000;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+            display: block;
         }
 
-        .clase-card p {
+        .clase-detalle {
             color: #cccccc;
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
 
-        .horario {
-            background: rgba(255, 0, 0, 0.1);
-            padding: 0.8rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            border-left: 4px solid #ff0000;
-        }
-
-        .horario strong {
-            color: #ff0000;
+        /* Celda vacía */
+        .empty-slot {
+            color: #666666;
+            font-style: italic;
+            text-align: center;
+            padding: 1rem;
         }
 
         /* Footer */
@@ -160,6 +250,32 @@
         }
 
         /* Responsive */
+        @media (max-width: 1400px) {
+            .schedule-table th,
+            .schedule-table td {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .training-title-row th {
+                font-size: 0.85rem;
+            }
+
+            .time-period {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .clase-nombre {
+                font-size: 0.9rem;
+            }
+
+            .clase-detalle {
+                font-size: 0.8rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .logo img {
                 height: 100px;
@@ -174,14 +290,49 @@
                 font-size: 1rem;
             }
 
-            .clases-grid {
-                grid-template-columns: 1fr;
+            .schedule-container {
+                font-size: 0.85rem;
+            }
+
+            .schedule-table th {
+                font-size: 0.9rem;
+                padding: 0.8rem 0.3rem;
+            }
+
+            .training-title-row th {
+                font-size: 0.75rem;
+                padding: 0.6rem 0.3rem;
+            }
+
+            .time-period {
+                font-size: 1.2rem;
+                min-width: 40px;
+            }
+
+            .clase-item {
+                padding: 0.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .nav-links {
                 display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .schedule-table {
+                font-size: 0.7rem;
+            }
+
+            .training-title-row th {
+                font-size: 0.65rem;
+            }
+
+            .time-period {
+                font-size: 1rem;
             }
         }
     </style>
@@ -204,74 +355,149 @@
 
     <!-- Main Content -->
     <main>
-        <h1 class="page-title">Nuestras Clases</h1>
+        <h1 class="page-title">Horario de Clases</h1>
+        <p class="page-subtitle">Planifica tu semana de entrenamiento</p>
 
-        <div class="clases-grid">
-            <!-- Clase 1 -->
-            <div class="clase-card">
-                <h3>💪 CrossFit</h3>
-                <p>Entrenamiento funcional de alta intensidad que combina levantamiento de pesas, gimnasia y cardio.</p>
-                <div class="horario">
-                    <strong>Horarios:</strong><br>
-                    Lunes, Miércoles, Viernes: 6:00 AM - 7:00 AM<br>
-                    Martes, Jueves: 7:00 PM - 8:00 PM
-                </div>
-            </div>
+        <!-- Tabla de Horarios -->
+        <div class="schedule-container">
+            <table class="schedule-table">
+                <thead>
+                    <!-- Fila de títulos de entrenamiento -->
+                    <tr class="training-title-row">
+                        <th colspan="2"></th>
+                        <th>LEG STRENGTH</th>
+                        <th>PULL DAY</th>
+                        <th>ENGINE HYBRID / HYROX CLASS</th>
+                        <th>PUSH DAY</th>
+                        <th>LEG CARE</th>
+                        <th>HYROX PRO TRAINING<br>FULL CALISTHENICS</th>
+                    </tr>
+                    <!-- Fila de días -->
+                    <tr class="day-row">
+                        <th colspan="2">HORA</th>
+                        <th>LUNES</th>
+                        <th>MARTES</th>
+                        <th>MIÉRCOLES</th>
+                        <th>JUEVES</th>
+                        <th>VIERNES</th>
+                        <th>SÁBADO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- SECCIÓN AM -->
+                    <!-- 5:45 AM - 7:00 AM -->
+                    <tr>
+                        <td class="time-period" rowspan="5">AM</td>
+                        <td class="time-slot">5:45 - 7:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="empty-slot">-</td>
+                    </tr>
 
-            <!-- Clase 2 -->
-            <div class="clase-card">
-                <h3>🏋️ Levantamiento de Pesas</h3>
-                <p>Desarrolla fuerza y masa muscular con técnicas profesionales de powerlifting y culturismo.</p>
-                <div class="horario">
-                    <strong>Horarios:</strong><br>
-                    Lunes a Viernes: 5:00 PM - 6:30 PM<br>
-                    Sábados: 9:00 AM - 11:00 AM
-                </div>
-            </div>
+                    <!-- 7:00 AM - 8:15 AM -->
+                    <tr>
+                        <td class="time-slot">7:00 - 8:15</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-nombre">Hyrox Pro Training</span>
+                                <span class="clase-detalle">7:45 - 9:15</span>
+                            </div>
+                        </td>
+                    </tr>
 
-            <!-- Clase 3 -->
-            <div class="clase-card">
-                <h3>🥊 Boxing</h3>
-                <p>Mejora tu condición física y técnica de combate con entrenamiento profesional de boxeo.</p>
-                <div class="horario">
-                    <strong>Horarios:</strong><br>
-                    Martes, Jueves: 6:00 PM - 7:30 PM<br>
-                    Sábados: 10:00 AM - 11:30 AM
-                </div>
-            </div>
+                    <!-- 8:15 AM - 9:30 AM -->
+                    <tr>
+                        <td class="time-slot">8:15 - 9:30</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-nombre">Full Calisthenics</span>
+                                <span class="clase-detalle">9:15 - 10:30</span>
+                            </div>
+                        </td>
+                    </tr>
 
-            <!-- Clase 4 -->
-            <div class="clase-card">
-                <h3>🧘 Yoga & Movilidad</h3>
-                <p>Sesiones de recuperación, flexibilidad y bienestar mental para complementar tu entrenamiento.</p>
-                <div class="horario">
-                    <strong>Horarios:</strong><br>
-                    Miércoles, Viernes: 8:00 AM - 9:00 AM<br>
-                    Domingos: 10:00 AM - 11:00 AM
-                </div>
-            </div>
+                    <!-- 9:30 AM - 10:45 AM -->
+                    <tr>
+                        <td class="time-slot">9:30 - 10:45</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="empty-slot">-</td>
+                    </tr>
 
-            <!-- Clase 5 -->
-            <div class="clase-card">
-                <h3>🔥 HIIT Cardio</h3>
-                <p>Entrenamiento cardiovascular de intervalos de alta intensidad para quemar grasa rápidamente.</p>
-                <div class="horario">
-                    <strong>Horarios:</strong><br>
-                    Lunes, Miércoles, Viernes: 7:00 AM - 8:00 AM<br>
-                    Martes, Jueves: 6:00 PM - 7:00 PM
-                </div>
-            </div>
+                    <!-- 10:45 AM - 11:30 AM -->
+                    <tr>
+                        <td class="time-slot">10:45 - 11:30</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="empty-slot">-</td>
+                    </tr>
 
-            <!-- Clase 6 -->
-            <div class="clase-card">
-                <h3>🏃 Running Club</h3>
-                <p>Entrena resistencia cardiovascular con nuestro club de corredores en rutas exteriores.</p>
-                <div class="horario">
-                    <strong>Horarios:</strong><br>
-                    Sábados: 7:00 AM - 8:30 AM<br>
-                    Domingos: 7:00 AM - 8:30 AM
-                </div>
-            </div>
+                    <!-- SECCIÓN PM -->
+                    <!-- 4:45 PM - 6:00 PM -->
+                    <tr>
+                        <td class="time-period" rowspan="4">PM</td>
+                        <td class="time-slot">16:45 - 18:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="empty-slot">-</td>
+                    </tr>
+
+                    <!-- 6:00 PM - 7:15 PM -->
+                    <tr>
+                        <td class="time-slot">18:00 - 19:15</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="empty-slot">-</td>
+                    </tr>
+
+                    <!-- 7:15 PM - 8:30 PM -->
+                    <tr>
+                        <td class="time-slot">19:15 - 20:30</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="empty-slot">-</td>
+                    </tr>
+
+                    <!-- 8:30 PM - 9:45 PM (No aplica viernes) -->
+                    <tr>
+                        <td class="time-slot">20:30 - 21:45</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="empty-slot">-</td>
+                        <td class="empty-slot">-</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </main>
 
