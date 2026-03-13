@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promoción del Mes - AXORA TRAINING CLUB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #ff0000;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 140px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #ff0000;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .page-title {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #ff0000;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .promo-content {
+            background: rgba(255, 255, 255, 0.05);
+            border: 3px solid #ff0000;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(255, 0, 0, 0.3);
+        }
+
+        .promo-content h2 {
+            font-size: 2.5rem;
+            color: #ff0000;
+            margin-bottom: 1.5rem;
+        }
+
+        .promo-content p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .promo-highlight {
+            background: rgba(255, 0, 0, 0.2);
+            border-left: 5px solid #ff0000;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+
+        .promo-highlight h3 {
+            color: #ff0000;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-promo-btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: #ff0000;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+            margin-top: 2rem;
+        }
+
+        .contact-promo-btn:hover {
+            background: #cc0000;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 2rem;
+            text-align: center;
+            border-top: 2px solid #ff0000;
+        }
+
+        footer p {
+            color: #666666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo img {
+                height: 100px;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 1rem;
+            }
+
+            .promo-content {
+                padding: 2rem;
+            }
+
+            .promo-content h2 {
+                font-size: 2rem;
+            }
+
+            .promo-content p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'imagenes/logo.png' %}" alt="AXORA Training Club">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'clases' %}">Clases</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1 class="page-title">🔥 PROMOCIÓN DEL MES 🔥</h1>
+
+        <div class="promo-content">
+            <h2>¡Oferta Especial de Marzo!</h2>
+            <p>
+                Únete a AXORA Training Club este mes y obtén beneficios increíbles 
+                que transformarán tu experiencia de entrenamiento.
+            </p>
+
+            <div class="promo-highlight">
+                <h3>📋 La Promoción Incluye:</h3>
+                <p>
+                    ✅ 50% de descuento en tu primera mensualidad<br>
+                    ✅ Evaluación física gratuita con nuestros coaches<br>
+                    ✅ Plan de entrenamiento personalizado<br>
+                    ✅ Acceso ilimitado a todas las clases<br>
+                    ✅ Kit de bienvenida AXORA
+                </p>
+            </div>
+
+            <p style="font-size: 1.5rem; color: #ff0000; font-weight: bold; margin-top: 2rem;">
+                ¡Solo por tiempo limitado!
+            </p>
+
+            <a href="{% url 'contacto' %}" class="contact-promo-btn">
+                Aprovecha la Oferta
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AXORA TRAINING CLUB - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

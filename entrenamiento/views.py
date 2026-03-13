@@ -8,3 +8,6 @@ def clases(request):
 
 def contacto(request):
     return render(request, "entrenamiento/contacto.html")
+
+def promocion(request):
+    return render(request, "entrenamiento/promocion.html")

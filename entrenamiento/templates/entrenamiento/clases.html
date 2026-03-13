@@ -134,8 +134,10 @@
             text-align: center;
         }
 
+        /* Espacio vacío arriba de HORA */
         .training-title-row th:first-child {
-            background: rgba(0, 0, 0, 0.5);
+            background: #000000;
+            border: 1px solid rgba(255, 0, 0, 0.3);
         }
 
         /* Fila de días - COLOR DIFERENTE */
@@ -150,11 +152,13 @@
             border: 1px solid rgba(255, 0, 0, 0.3);
         }
 
+        /* Espacio de HORA en fila de días */
         .day-row th:first-child {
-            background: rgba(0, 0, 0, 0.5);
+            background: #000000;
+            border: 1px solid rgba(255, 0, 0, 0.3);
         }
 
-        /* Columna AM/PM */
+        /* Columna AM/PM vertical del lado izquierdo */
         .time-period {
             background: #ff0000;
             color: #ffffff;
@@ -163,7 +167,7 @@
             text-align: center;
             vertical-align: middle;
             letter-spacing: 3px;
-            writing-mode: horizontal-tb;
+            writing-mode: vertical-rl;
             text-orientation: mixed;
             padding: 1rem 0.5rem;
             min-width: 60px;
@@ -194,6 +198,17 @@
             padding: 0.8rem 0.5rem;
         }
 
+        /* Separador entre AM y PM */
+        .separator-row {
+            height: 20px;
+        }
+
+        .separator-row td {
+            background: #000000 !important;
+            border: none !important;
+            padding: 0 !important;
+        }
+
         /* Clases en las celdas */
         .clase-item {
             background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.1));
@@ -216,7 +231,7 @@
 
         .clase-nombre {
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #ff0000;
             margin-bottom: 0.3rem;
             display: block;
@@ -224,7 +239,7 @@
 
         .clase-detalle {
             color: #cccccc;
-            font-size: 0.85rem;
+            font-size: 1rem;
             line-height: 1.4;
         }
 
@@ -264,15 +279,19 @@
             .time-period {
                 font-size: 1.5rem;
             }
+
+            .clase-detalle {
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 1200px) {
             .clase-nombre {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
 
             .clase-detalle {
-                font-size: 0.8rem;
+                font-size: 0.85rem;
             }
         }
 
@@ -311,6 +330,10 @@
 
             .clase-item {
                 padding: 0.5rem;
+            }
+
+            .clase-detalle {
+                font-size: 0.8rem;
             }
         }
 
@@ -389,26 +412,66 @@
                     <tr>
                         <td class="time-period" rowspan="5">AM</td>
                         <td class="time-slot">5:45 - 7:00</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
                         <td class="empty-slot">-</td>
                     </tr>
 
                     <!-- 7:00 AM - 8:15 AM -->
                     <tr>
                         <td class="time-slot">7:00 - 8:15</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
                         <td>
                             <div class="clase-item">
                                 <span class="clase-nombre">Hyrox Pro Training</span>
-                                <span class="clase-detalle">7:45 - 9:15</span>
+                                <span class="clase-detalle">7:45 - 9:15 | Coach: Javier</span>
                             </div>
                         </td>
                     </tr>
@@ -416,15 +479,35 @@
                     <!-- 8:15 AM - 9:30 AM -->
                     <tr>
                         <td class="time-slot">8:15 - 9:30</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
                         <td>
                             <div class="clase-item">
                                 <span class="clase-nombre">Full Calisthenics</span>
-                                <span class="clase-detalle">9:15 - 10:30</span>
+                                <span class="clase-detalle">9:15 - 10:30 | Coach: Javier</span>
                             </div>
                         </td>
                     </tr>
@@ -432,11 +515,31 @@
                     <!-- 9:30 AM - 10:45 AM -->
                     <tr>
                         <td class="time-slot">9:30 - 10:45</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
                         <td class="empty-slot">-</td>
                     </tr>
 
@@ -448,7 +551,12 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td class="empty-slot">-</td>
+                        <td></td>
+                    </tr>
+
+                    <!-- SEPARADOR ENTRE AM Y PM -->
+                    <tr class="separator-row">
+                        <td colspan="8"></td>
                     </tr>
 
                     <!-- SECCIÓN PM -->
@@ -456,43 +564,119 @@
                     <tr>
                         <td class="time-period" rowspan="4">PM</td>
                         <td class="time-slot">16:45 - 18:00</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
                         <td class="empty-slot">-</td>
                     </tr>
 
                     <!-- 6:00 PM - 7:15 PM -->
                     <tr>
                         <td class="time-slot">18:00 - 19:15</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
                         <td class="empty-slot">-</td>
                     </tr>
 
                     <!-- 7:15 PM - 8:30 PM -->
                     <tr>
                         <td class="time-slot">19:15 - 20:30</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
                         <td class="empty-slot">-</td>
                     </tr>
 
                     <!-- 8:30 PM - 9:45 PM (No aplica viernes) -->
                     <tr>
                         <td class="time-slot">20:30 - 21:45</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="clase-item">
+                                <span class="clase-detalle">Coach: Javier</span>
+                            </div>
+                        </td>
                         <td class="empty-slot">-</td>
                         <td class="empty-slot">-</td>
                     </tr>
